@@ -9,8 +9,9 @@ metadata:
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
 spec:
   ingressClassName: alb
+
   rules:
-    - host: backend.amanpathakdevops.study
+    - host: qrmake.shop
       http:
         paths:
           - path: /api
@@ -18,13 +19,32 @@ spec:
             backend:
               service:
                 name: api
-                port:   
+                port:
                   number: 3500
+
           - path: /
             pathType: Prefix
             backend:
               service:
                 name: frontend
-                port: 
+                port:
                   number: 3000
-      
+
+    - host: www.qrmake.shop
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: api
+                port:
+                  number: 3500
+
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 3000
