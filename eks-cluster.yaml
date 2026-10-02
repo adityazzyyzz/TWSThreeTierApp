@@ -1,0 +1,14 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: three-tier-cluster
+  region: us-west-2
+  version: "1.34"
+
+managedNodeGroups:
+  - name: three-tier-nodes
+    instanceType: t3.small
+    minSize: 2
+    maxSize: 2
+    desiredCapacity: 2
